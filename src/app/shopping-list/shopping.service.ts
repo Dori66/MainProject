@@ -25,6 +25,7 @@ private ingredients: Ingredient[]  = [
 
   addIngredients(ingredients: Ingredient[]){
     this.ingredients.push(...ingredients);
+    // console.log(...ingredients)
     this.ingredientsChanged.emit(this.ingredients.slice());
   }
 }
