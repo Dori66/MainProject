@@ -1,4 +1,4 @@
-import { EventEmitter, Injectable } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { Ingredient } from "../shared/ingredient.model";
 import { ShoppingListService } from "../shopping-list/shopping.service";
 import { Recipe } from "./recipe.model";
@@ -7,7 +7,7 @@ import { Recipe } from "./recipe.model";
 
 export class RecipeService {
 
-recipeSelected = new EventEmitter<Recipe>();
+
 
  private  recipes : Recipe [] = [
     new Recipe('Main Meal','Mixed Potatos','https://www.acouplecooks.com/wp-content/uploads/2020/05/Grilled-Sweet-Potatoes-009.jpg',
