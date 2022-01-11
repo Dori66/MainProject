@@ -2,12 +2,13 @@ import { Injectable } from "@angular/core";
 import { Ingredient } from "../shared/ingredient.model";
 import { ShoppingListService } from "../shopping-list/shopping.service";
 import { Recipe } from "./recipe.model";
+import {Subject} from "rxjs";
 
 @Injectable()
 
 export class RecipeService {
 
-
+ recipesChanged = new Subject<Recipe[]>();
 
  private  recipes : Recipe [] = [
     new Recipe('Main Meal','Mixed Potatos','https://www.acouplecooks.com/wp-content/uploads/2020/05/Grilled-Sweet-Potatoes-009.jpg',
@@ -39,5 +40,21 @@ export class RecipeService {
       this.slServer.addIngredients(ingredients);
   }
 
+
+  addRecipe(recipe: Recipe){
+    this.recipes.push(recipe)
+    this.recipesChanged.next(this.recipes.slice())
+  }
+
+  updateRecipe(index: number, newRecipe: Recipe){
+    this.recipes[index] = newRecipe;
+    this.recipesChanged.next(this.recipes.slice())
+
+  }
+
+  deleteRecipe(index : number){
+    this.recipes.splice(index,1)
+    this.recipesChanged.next(this.recipes.slice());
+  }
 
 }
