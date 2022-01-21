@@ -7,7 +7,6 @@ import {NgModule} from "@angular/core";
 import {RecipeStartComponent} from "./recipe-start/recipe-start.component";
 import {RecipeEditComponent} from "./recipe-edit/recipe-edit.component";
 import {RouterModule} from "@angular/router";
-import {CommonModule} from "@angular/common";
 import {RecipesRoutingModules} from "./recipes-routing.modules";
 import {SharedModule} from "../shared/shared.module";
 
